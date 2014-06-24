@@ -63,11 +63,11 @@ require([
 
       // Asociamos el del botón de mostrar la leyenda
       dojo.connect(dojo.byId('showLegend'), "onclick", function(evt) {
-         console.log("Me ejecutto")
-         if(dojo.style(dojo.byId("legendDiv"),"opacity") != "1"){
-           dojo.style(dojo.byId("legendDiv"),"opacity", "1");
+         //debugger;
+         if(dojo.style(dojo.byId("legendDiv"),"left") == "-300"){
+           dojo.style(dojo.byId("legendDiv"),"left", "80px");
          }else{
-           dojo.style(dojo.byId("legendDiv"),"opacity", "0");
+           dojo.style(dojo.byId("legendDiv"),"left", "-300px");
          }
          dojo.stopEvent(evt);
       });

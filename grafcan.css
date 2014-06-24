@@ -46,18 +46,17 @@ header img{
   background-color: #fff;
   z-index: 99;
   top: 50px;
-  left: 80px;
+  left: -300px;
   bottom: 10px;
   position: fixed !important;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 8px;
-  opacity: 0;
   width: 252px;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
+  -webkit-transition: left .5s;
+  -moz-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
 }
 img[src="undefined"]{display:none;}
 
