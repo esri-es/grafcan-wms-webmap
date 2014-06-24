@@ -1,0 +1,99 @@
+html,body,#mapDiv,.map.container{
+  padding:0;
+  margin:0;
+  height:100%;
+}
+header{
+  background-color: white;
+  height: 40px;
+  box-shadow: 0 1px 1px #AAA;
+  z-index: 2;
+  position: relative;
+}
+header img{
+  height: 37px;
+  margin-left: 21px;
+}
+#search {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  float: right;
+  height: 50px;
+  right: 167px;
+} 
+#mapLayers{
+  position: absolute !important;
+  right: 10px;
+  z-index: 2;
+  top: 8px;
+}
+#mapLayers ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#mapLayers select{
+  width: 143px;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #888;
+}
+
+#legendDiv{
+  background-color: #fff;
+  z-index: 99;
+  top: 50px;
+  left: 80px;
+  bottom: 10px;
+  position: fixed !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+  opacity: 0;
+  width: 252px;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+img[src="undefined"]{display:none;}
+
+#SLContainer{
+  z-index: 99;
+  top: -2px;
+  left: 70px;
+  position: fixed !important;
+  padding: 8px;
+}
+
+#SLContainer button{
+  background: white;
+  color: #888;
+  border: 0;
+  margin-top: 0;
+  padding: 4px 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.simpleGeocoder .esriGeocoder,
+.simpleGeocoder .esriGeocoderResults{
+  border: 1px solid #ccc;
+}
+.simpleGeocoder .esriGeocoder input{
+  padding: 4px 0;
+}
+.simpleGeocoder .esriGeocoderIcon{
+  margin: 4px 0;
+}
+
+#showLegend,
+#mapLayers select,
+.simpleGeocoder .esriGeocoder input,
+.simpleGeocoder .esriGeocoderResult{
+  font-family: 'Open Sans', sans-serif !important;
+}
