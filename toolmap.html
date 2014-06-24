@@ -8,27 +8,57 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 
   <style type="text/css">
-  form{
-    margin-bottom: 15px;
-  }
+    body{
+      font-family: 'Open Sans', sans-serif !important;
+      font-size: 14px;
+    }
+    form{
+      margin-bottom: 15px;
+    }
+    iframe{
+      border: 1px solid black;
+    }
+    textarea{
+      width: 500px;
+      height: 50px;
+    }
   </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("form").submit(function(e){
+        e.preventDefault();
+
+        var ancho = $("#ancho").val(), 
+            alto = $("#alto").val(),
+            sistema = $("#sistema").val();
+
+        $("iframe").css("width", ancho + sistema);
+        $("iframe").css("height", alto + sistema);
+
+        $("#code").html('<iframe src="http://esri-es.github.io/grafcan-wms-webmap/" style="width:'+ ancho + sistema +';height:'+ alto + sistema+';overflow:hidden"></iframe>');
+      });
+    });
+  </script>
   </head>
 
   <body>
-    <p>Elige el tamaño del mapa:</p>
+    <h1>Incluye un mapa de Grafcan en tu web</h1>
+    <p>1) Elige el tamaño en el que quieres que se muestre el mapa:</p>
     <form action="#">
       <label>Unidad de medida</label>
-      <select>
-        <option>Píxeles (px)</option>
-        <option>Porcentaje (%)</option>
+      <select id="sistema">
+        <option value="px">Píxeles (px)</option>
+        <option value="%">Porcentaje (%)</option>
       </select>
-      <label>Alto:</label>
-      <input type="text">
       <label>Ancho:</label>
-      <input type="text">
+      <input type="number" value="500" id="ancho">
+      <label>Alto:</label>
+      <input type="number" value="300" id="alto">
+      <input type="submit" value="Cambiar">
     </form>
-    <iframe src="" width="500" height="300"></iframe>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <iframe src="http://esri-es.github.io/grafcan-wms-webmap/" style="width:500px;height:300px;overflow:hidden"></iframe>
+    <p>2) Copia y pega el siguiente código dentro de la etiqueta <em>&lt;body&gt;</em> de tu página HTML:</p>
+    <textarea id="code"><iframe src="http://esri-es.github.io/grafcan-wms-webmap/" style="width:500px;height:300px;overflow:hidden"></iframe></textarea>
   </body>
   </html>

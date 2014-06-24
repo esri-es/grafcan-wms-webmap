@@ -97,3 +97,19 @@ img[src="undefined"]{display:none;}
 .simpleGeocoder .esriGeocoderResult{
   font-family: 'Open Sans', sans-serif !important;
 }
+
+@media all and (max-width: 500px){
+  #SLContainer {
+    display:none;
+  }
+}
+
+@media all and (max-width: 480px){
+  #mapLayers{
+    bottom: 10px;
+    top: inherit;
+    position: fixed !important;
+  }
+  #search {right: 10px;}
+
+}
