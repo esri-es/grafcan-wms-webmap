@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Create a Web Map</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
+  <link rel="stylesheet" type="text/css" href="grafcan.css">
+  
+  <script>var dojoConfig = { parseOnLoad:true };</script>
+  <script src="http://js.arcgis.com/3.9compact/"></script>
+  <script src="grafcan.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img border="0" alt="IDECanarias" title="IDECanarias" id="imagelogo" src="http://visor.grafcan.es/gmaps/images/idecan.png">
+      <div id="search"></div>
+      <div id="SLContainer"><button id="showLegend"><span>Mostrar</span> leyenda</button></div>
+      <div id="mapLayers">
+        <select id="selectLayers">
+          <option value="http://idecan2.grafcan.es/ServicioWMS/Callejero" class="layer">Callejero</option>
+          <option value="http://idecan1.grafcan.es/ServicioWMS/OrtoUrb" class="layer">Ortofoto</option>
+          <option value="http://idecan2.grafcan.es/ServicioWMS/Callejero?map=/home/datos/mapas/Callejero/CallejeroTxt.map" class="layer">Mixto</option>
+          <option value="http://idecan2.grafcan.es/ServicioWMS/MTI" class="layer">Topográfico</option>
+        </select>
+      </div>
+    </header>
+    <div id="mapDiv"></div>
+    <div id="legendDiv"></div>
+  </body>
+  </html>
