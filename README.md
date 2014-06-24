@@ -4,7 +4,7 @@ Este tutorial muestra cómo integrar los servicios de mapas WMS de IDECanarias d
 
 Puedes ver un ejemplo de cómo añadir uno en tu propia página haciendo clic en el siguiente mapa:  
 
-![Mapa Grafcan](thumbnail.jpg)
+[![Mapa Grafcan](thumbnail.jpg)](esri-es.github.io/grafcan-wms-webmap/toolmap.html)
 
 ## Personalizar un mapa ##
 
