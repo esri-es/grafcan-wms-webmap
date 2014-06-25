@@ -10,7 +10,7 @@ require([
   "dojo/domReady!"
   ], function(Map, arcgisUtils, SpatialReference, Extent, urlUtils){
   arcgisUtils.createMap("8eb5d173bca74ffaa2ca5bc928775fc4", "mapDiv").then(function (response) {
-      map = window.parent.map = response.map;   
+      map = response.map;   
       
       // Si recibimos una extensión por parámetros la establecemos
       if (location.search.length != 0){
@@ -87,6 +87,13 @@ require([
          }
          dojo.stopEvent(evt);
       });
+
+      // Si estamos en el toolmap hacemos accesible el mapa
+      try{
+        window.parent.map = response.map;   
+      }catch(e){
+          console.log("No estoy en el toolmap: http://esri-es.github.io/grafcan-wms-webmap/toolmap.html");
+      }
 
   });
 
