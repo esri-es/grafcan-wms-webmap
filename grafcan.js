@@ -2,13 +2,29 @@ var map;
 require([
   "esri/map",
   "esri/arcgis/utils",
-  "dojo/domReady!",
+  "esri/SpatialReference",
+  "esri/geometry/Extent",
+  "esri/urlUtils",
   "esri/dijit/Geocoder",
-  "esri/dijit/Legend"
-  ], function(Map, arcgisUtils){
-
+  "esri/dijit/Legend",
+  "dojo/domReady!"
+  ], function(Map, arcgisUtils, SpatialReference, Extent, urlUtils){
   arcgisUtils.createMap("8eb5d173bca74ffaa2ca5bc928775fc4", "mapDiv").then(function (response) {
-      map = response.map;   
+      map = window.parent.map = response.map;   
+      
+      // Si recibimos una extensión por parámetros la establecemos
+      if (location.search.length != 0){
+        var extent = urlUtils.urlToObject(location.href).query.extent.split(",");
+
+        var newExtent = new Extent(
+          parseFloat(extent[0]), 
+          parseFloat(extent[1]), 
+          parseFloat(extent[2]), 
+          parseFloat(extent[3]),
+          new SpatialReference({wkid:4326})
+        );
+        map.setExtent(newExtent);
+      }
 
       // Creamos y mostramos el widget de búqueda
       geocoder = new esri.dijit.Geocoder({
@@ -71,7 +87,7 @@ require([
          }
          dojo.stopEvent(evt);
       });
-      
+
   });
 
 });

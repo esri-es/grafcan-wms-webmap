@@ -15,7 +15,7 @@
     form{
       margin-bottom: 15px;
     }
-    iframe{
+    embed{
       border: 1px solid black;
     }
     textarea{
@@ -25,10 +25,16 @@
   </style>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>
+
+    var extent;
     $(document).ready(function(){
       $("form").submit(function(e){
         e.preventDefault();
+        updateCode();
+      });
+    });
 
+    var updateCode = function(){
         var ancho = $("#ancho").val(), 
             alto = $("#alto").val(),
             sistema = $("#sistema").val();
@@ -36,9 +42,22 @@
         $("iframe").css("width", ancho + sistema);
         $("iframe").css("height", alto + sistema);
 
-        $("#code").html('<iframe src="http://esri-es.github.io/grafcan-wms-webmap/" style="width:'+ ancho + sistema +';height:'+ alto + sistema+';overflow:hidden"></iframe>');
-      });
-    });
+        $("#code").html('<iframe src="http://esri-es.github.io/grafcan-wms-webmap/?extent=' + extent.xmin + ',' + extent.ymin + ',' + extent.xmax + ',' + extent.ymax + '" style="width:'+ ancho + sistema +';height:'+ alto + sistema+';overflow:hidden"></iframe>');
+    };
+
+    var setExtentChange = function(){
+      if(typeof(map) != "undefined"){
+        map.on("extent-change", function(evt) {
+          extent = evt.extent;
+          updateCode();
+        });
+        console.log("Establecido el setExtentChanged");
+      }else{
+        setTimeout("setExtentChange()", 1000);
+      }
+    };
+
+    setExtentChange();
   </script>
   </head>
 
