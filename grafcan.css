@@ -98,6 +98,10 @@ img[src="undefined"]{display:none;}
   font-family: 'Open Sans', sans-serif !important;
 }
 
+.esriSimpleSliderTL{
+  top: 60px;
+}
+
 @media all and (max-width: 624px){
   #SLContainer {
     display:none;
